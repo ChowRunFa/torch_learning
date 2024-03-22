@@ -1,16 +1,23 @@
-# This is a sample Python script.
+def generate_txt_label():
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    import os
 
+    root_dir = 'dataset/hymenoptera_data/train'
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    for target_dir,out_dir in ['ants_image','ants_label'],['bees_image','bees_label']:
 
+        img_path = os.listdir(os.path.join(root_dir, target_dir))
+        label = target_dir.split('_')[0]
 
-# Press the green button in the gutter to run the script.
+        label_dir = os.path.join(root_dir, out_dir)
+
+        if not os.path.exists(label_dir):
+            os.mkdir(label_dir)
+
+        for i in img_path:
+            file_name = i.split('.jpg')[0]
+            with open(os.path.join(root_dir, out_dir,"{}.txt".format(file_name)),'w') as f:
+                f.write(label)
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    generate_txt_label()
