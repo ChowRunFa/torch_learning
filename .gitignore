@@ -5,6 +5,10 @@ __pycache__/
 
 /.idea
 
+logs/
+
+torchvision/dataset
+
 # C extensions
 *.so
 
