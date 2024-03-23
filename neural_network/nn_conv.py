@@ -24,6 +24,7 @@ class MyNeuralNetwork(nn.Module):
                               [1, 2, 1, 0, 0],
                               [5, 2, 3, 1, 1],
                               [2, 1, 0, 1, 1]])
+
         kernel = torch.tensor([[1, 2, 1],
                                [0, 1, 0],
                                [2, 1, 0]])
