@@ -1,0 +1,13 @@
+@prefix ex: <http://example.org/> .
+
+ex:Person1 ex:name "Alice" ;
+           ex:age 30 ;
+           ex:city "New York" .
+
+ex:Person2 ex:name "Bob" ;
+           ex:age 25 ;
+           ex:city "Los Angeles" .
+
+ex:Person3 ex:name "Charlie" ;
+           ex:age 35 ;
+           ex:city "Chicago" .

@@ -6,7 +6,7 @@ __pycache__/
 /.idea
 
 logs
-
+*.pth
 torchvision/dataset
 
 # C extensions

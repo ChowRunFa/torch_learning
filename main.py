@@ -18,6 +18,32 @@ def generate_txt_label():
             file_name = i.split('.jpg')[0]
             with open(os.path.join(root_dir, out_dir,"{}.txt".format(file_name)),'w') as f:
                 f.write(label)
+def read_rdf():
+    from rdflib import Graph
+
+    # 加载 RDF 数据文件
+    g = Graph()
+    g.parse("your_rdf_data.ttl", format="turtle")
+
+    # 定义 SPARQL 查询
+    query = """
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?subject ?predicate ?object
+    WHERE {
+      ?subject ?predicate ?object .
+    }
+    LIMIT 10
+    """
+
+    # 执行 SPARQL 查询
+    results = g.query(query)
+
+    # 输出查询结果
+    for row in results:
+        print(row)
+
 
 if __name__ == '__main__':
-    generate_txt_label()
+    read_rdf()
